@@ -7,7 +7,6 @@ plugins:
 paginate: 3
 paginate_path: "blog/page:num"
 description: Rspamd home.
-url: http://rspamd.com
 future: true
 markdown: kramdown
 
