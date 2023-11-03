@@ -94,7 +94,7 @@ Optional parameters (and their defaults if applicable) are as follows:
 - `dkim_match_from` (false) - only check DKIM signatures matching the `From` header
 - `emails_domainonly` (false) - lookup domain of address instead of full address
 - `enabled` (true) - allow for disabling of RBLs
-- `exclude_local` (true) - do not check private addresses in this RBL
+- `exclude_local` (true) - do not check messages from private IPs against this RBL (for `received` check: do not check private IPs at all)
 - `exclude_users` (false) - do not check this RBL if sender is an authenticated user
 - `hash` - valid for `helo` and `emails` RBL types - lookup hashes instead of literal strings. Possible values for this parameter are `sha1`, `sha256`, `sha384`, `sha512` and `md5` or any other value for the default hashing algorithm.
 - `hash_format` - encoding to use for hash: `hex`, `base32` or `base64`
@@ -103,7 +103,7 @@ Optional parameters (and their defaults if applicable) are as follows:
 - `ipv4` (true) - if IPv4 addresses should be checked
 - `ipv6` (true) - if IPv6 addresses should be checked
 - `is_whitelist` (false) - denotes that this RBL is an whitelist
-- `local_exclude_ip_map` - map containing IPv4/IPv6 addresses/subnets that shouldn't be checked in RBLs (where `exclude_local` is `true` (default)).
+- `local_exclude_ip_map` - map containing IPv4/IPv6 addresses/subnets which should be considered private (and treated as local by `exclude_local`)
 - `monitored_address` (`1.0.0.127`) - fixed address to check for absence; see section on monitoring for more information
 - `no_ip` (false) - do not look up IP addresses in this RBL
 - `requests_limit` (9999) - maximum number of entities extracted by URL checks
